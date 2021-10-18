@@ -37,4 +37,4 @@ Future<String> getJson() async {
   return await rootBundle.loadString('assets/files/country.json');
 }
 
-Future<List<CountryModel>> country = countryModelFromJson(getJson());
+// Future<List<CountryModel>> country = countryModelFromJson(getJson());
