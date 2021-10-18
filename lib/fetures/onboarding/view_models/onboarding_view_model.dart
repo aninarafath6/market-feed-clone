@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marketfeed_clone/onboarding/models/onboarding_model.dart';
+import 'package:marketfeed_clone/fetures/onboarding/models/onboarding_model.dart';
 
 class OnboardingViewModel with ChangeNotifier {
   int _selectedIndex = 0;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:marketfeed_clone/common/constants/app_colors.dart';
 import 'package:marketfeed_clone/common/constants/app_images.dart';
-import 'package:marketfeed_clone/onboarding/view_models/onboarding_view_model.dart';
-import 'package:marketfeed_clone/onboarding/views/widgets/button.dart';
-import 'package:marketfeed_clone/onboarding/views/widgets/onboarding_paging.dart';
+import 'package:marketfeed_clone/fetures/onboarding/view_models/onboarding_view_model.dart';
+import 'package:marketfeed_clone/fetures/onboarding/views/widgets/button.dart';
+import 'package:marketfeed_clone/fetures/onboarding/views/widgets/onboarding_paging.dart';
 import 'package:provider/src/provider.dart';
 
 class OnboardingView extends StatelessWidget {

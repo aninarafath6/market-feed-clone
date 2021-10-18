@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marketfeed_clone/onboarding/view_models/onboarding_view_model.dart';
+import 'package:marketfeed_clone/fetures/onboarding/view_models/onboarding_view_model.dart';
 import 'package:marketfeed_clone/utils/dimensions.dart';
 import 'package:provider/src/provider.dart';
 

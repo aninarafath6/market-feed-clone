@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marketfeed_clone/onboarding/views/onboarding_view.dart';
+import 'package:marketfeed_clone/fetures/onboarding/views/onboarding_view.dart';
 
 class AppRoutes {
  static Route<dynamic> generateRoute(RouteSettings settings) {
