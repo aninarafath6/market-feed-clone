@@ -14,6 +14,9 @@ class OnboardingPaging extends StatelessWidget {
     var provider = context.read<OnboardingViewModel>();
 
     return PageView.builder(
+      controller:provider.pageController,
+      onPageChanged:provider.updateIndex,
+      physics:const BouncingScrollPhysics(),
       itemCount: provider.onboardingData.length,
       itemBuilder: (context, index) {
         return Padding(
@@ -24,13 +27,13 @@ class OnboardingPaging extends StatelessWidget {
             children: [
               Image.asset(
                 provider.onboardingData[index].icon!,
-                width: context.getHeight(15),
+                width: context.getHeight(10),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               Text(
                 provider.onboardingData[index].title!,
                 style: GoogleFonts.roboto(
-                  fontSize: context.getWidth(11),
+                  fontSize: context.getWidth(10),
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),

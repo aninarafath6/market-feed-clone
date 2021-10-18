@@ -2,7 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:marketfeed_clone/onboarding/models/onboarding_model.dart';
 
 class OnboardingViewModel with ChangeNotifier {
-  final List<OnboardingModel> onboardingData = <OnboardingModel>[
+  int _selectedIndex = 0;
+  final PageController pageController = PageController();
+
+  get onboardingData => _onboardingData;
+  get selectedIndex => _selectedIndex;
+
+  void updateIndex(int index) {
+    _selectedIndex = index;
+    notifyListeners();
+  }
+
+  void nextPage() {
+    if (_selectedIndex != _onboardingData.length - 1) {
+      pageController.nextPage(
+          duration: const Duration(milliseconds: 600), curve: Curves.ease);
+    }
+  }
+
+  final List<OnboardingModel> _onboardingData = <OnboardingModel>[
     OnboardingModel(
       title: 'noise-free\n& curated',
       subtitle: 'market insights',

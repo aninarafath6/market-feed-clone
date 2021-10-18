@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:marketfeed_clone/common/constants/app_colors.dart';
 import 'package:marketfeed_clone/common/constants/app_images.dart';
+import 'package:marketfeed_clone/onboarding/view_models/onboarding_view_model.dart';
 import 'package:marketfeed_clone/onboarding/views/widgets/button.dart';
 import 'package:marketfeed_clone/onboarding/views/widgets/onboarding_paging.dart';
+import 'package:provider/src/provider.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({Key? key}) : super(key: key);
@@ -15,7 +17,7 @@ class OnboardingView extends StatelessWidget {
       backgroundColor: AppColors.primaryColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             children: [
               Expanded(
@@ -23,7 +25,7 @@ class OnboardingView extends StatelessWidget {
                   children: <Widget>[
                     const Positioned(
                       right: 0,
-                      top: 50,
+                      top: 30,
                       child: Text(
                         'Skip',
                         style: TextStyle(
@@ -34,7 +36,7 @@ class OnboardingView extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: 50,
+                      top: 24,
                       left: 20,
                       child: Image.asset(
                         AppImages.doutImage,
@@ -42,21 +44,25 @@ class OnboardingView extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: 50,
+                      bottom: 30,
                       right: 20,
                       child: Image.asset(
                         AppImages.doutImage,
                         width: 70,
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.centerLeft,
                       child: OnboardingPaging(),
                     )
                   ],
                 ),
               ),
-              Button(label: 'Next', onTap: () {}),
+              Button(
+                  label: 'Next',
+                  onTap: () {
+                    context.read<OnboardingViewModel>().nextPage();
+                  }),
             ],
           ),
         ),
