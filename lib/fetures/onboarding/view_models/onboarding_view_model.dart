@@ -7,6 +7,7 @@ class OnboardingViewModel with ChangeNotifier {
 
   get onboardingData => _onboardingData;
   get selectedIndex => _selectedIndex;
+  get isLastPage => _onboardingData.length - 1 == _selectedIndex;
 
   void updateIndex(int index) {
     _selectedIndex = index;
@@ -16,7 +17,7 @@ class OnboardingViewModel with ChangeNotifier {
   void nextPage() {
     if (_selectedIndex != _onboardingData.length - 1) {
       pageController.nextPage(
-          duration: const Duration(milliseconds: 600), curve: Curves.ease);
+          duration: const Duration(milliseconds: 300), curve: Curves.ease);
     }
   }
 
