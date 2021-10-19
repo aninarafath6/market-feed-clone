@@ -3,8 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:marketfeed_clone/common/constants/app_colors.dart';
 import 'package:marketfeed_clone/common/widgets/button.dart';
 import 'package:marketfeed_clone/common/widgets/inputbox.dart';
+import 'package:marketfeed_clone/fetures/authentication/view_model/country_code_view_model.dart';
 import 'package:marketfeed_clone/fetures/authentication/widgets/country_code.dart';
 import 'package:marketfeed_clone/utils/dimensions.dart';
+import 'package:provider/src/provider.dart';
 
 class BottomSection extends StatelessWidget {
   const BottomSection({
@@ -65,7 +67,11 @@ class BottomSection extends StatelessWidget {
                   );
                 },
                 child: Text(
-                  '+91'.toString(),
+                  context
+                      .watch<CountryCodeViewModel>()
+                      .selectedCountry
+                      .dialCode
+                      .toString(),
                   style: GoogleFonts.roboto(color: Colors.white, fontSize: 18),
                 ),
               ),

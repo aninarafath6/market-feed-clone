@@ -6,6 +6,7 @@ import 'package:marketfeed_clone/fetures/authentication/models/country_dropdown.
 import 'package:marketfeed_clone/fetures/authentication/view_model/country_code_view_model.dart';
 import 'package:marketfeed_clone/fetures/onboarding/view_models/onboarding_view_model.dart';
 import 'package:marketfeed_clone/utils/dimensions.dart';
+import 'package:marketfeed_clone/utils/navigation.dart';
 import 'package:provider/src/provider.dart';
 
 class CountryCodes extends StatelessWidget {
@@ -13,6 +14,7 @@ class CountryCodes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = context.read<CountryCodeViewModel>();
     return Align(
       alignment: Alignment.bottomCenter,
       child: Material(
@@ -29,7 +31,8 @@ class CountryCodes extends StatelessWidget {
             children: [
               InputBox(
                 inputLabel: 'search your country',
-                onChanged: context.read<CountryCodeViewModel>().filteredCountry,
+                type: TextInputType.text,
+                onChanged: provider.filteredCountry,
               ),
               const SizedBox(height: 25),
               Expanded(
@@ -39,32 +42,30 @@ class CountryCodes extends StatelessWidget {
                     if (!snapshot.hasData) return const SizedBox();
                     return ListView.separated(
                       itemBuilder: (context, index) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              snapshot.data![index].name,
-                              style: GoogleFonts.roboto(
-                                color: Colors.white,
-                                fontSize: 19,
-                              ),
+                        return ListTile(
+                          onTap: () {
+                            provider.updateCountryCode(snapshot.data![index]);
+                            context.pop(true);
+                          },
+                          title: Text(
+                            snapshot.data![index].name,
+                            style: GoogleFonts.roboto(
+                              color: Colors.white,
+                              fontSize: 19,
                             ),
-                            const SizedBox(
-                              height: 13,
+                          ),
+                          subtitle: Text(
+                            snapshot.data![index].dialCode,
+                            style: GoogleFonts.roboto(
+                              color: Colors.white70,
+                              fontSize: 16,
                             ),
-                            Text(
-                              snapshot.data![index].dialCode,
-                              style: GoogleFonts.roboto(
-                                color: Colors.white70,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) {
                         return const SizedBox(
-                          height: 30,
+                          height: 10,
                         );
                       },
                       itemCount: snapshot.data!.length,

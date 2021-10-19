@@ -7,5 +7,5 @@ extension Nav on BuildContext {
   void toPushNamedReplacement(String route) =>
       Navigator.pushReplacementNamed(this, route);
   // pop navigation context.pop();
-  void pop() => Navigator.pop(this);
+  void pop(bool bool) => Navigator.pop(this);
 }

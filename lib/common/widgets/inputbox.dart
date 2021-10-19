@@ -7,15 +7,17 @@ class InputBox extends StatelessWidget {
     Key? key,
     this.inputLabel,
     this.onChanged,
+    this.type
   }) : super(key: key);
 
   final String? inputLabel;
   final Function(String)? onChanged;
+  final TextInputType? type;
   @override
   Widget build(BuildContext context) {
     return TextField(
       onChanged: onChanged,
-      keyboardType: TextInputType.number,
+      keyboardType:type?? TextInputType.number,
       style: GoogleFonts.roboto(color: Colors.white),
       decoration: InputDecoration(
         hintText: inputLabel ?? '',
