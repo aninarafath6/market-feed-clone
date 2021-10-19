@@ -52,7 +52,7 @@ class OnboardingView extends StatelessWidget {
                       child: TextButton(
                         onPressed: () {
                           debugPrint('skip');
-                          context.toNamed(LoginView.routeName);
+                          context.toPushNamedReplacement(LoginView.routeName);
                         },
                         child: const Text(
                           'Skip',

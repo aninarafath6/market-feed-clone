@@ -4,6 +4,7 @@ import 'package:marketfeed_clone/fetures/authentication/models/country_dropdown.
 class CountryCodeViewModel with ChangeNotifier {
   final Future<List<CountryModel>> allCountry = countryModelFromJson(getJson());
   Future<List<CountryModel>> result = countryModelFromJson(getJson());
+  bool _isDropDownOpen = false;
   CountryModel _selectedCountry = CountryModel(
     name: "British Indian Ocean Territory",
     dialCode: "+246",
@@ -11,6 +12,12 @@ class CountryCodeViewModel with ChangeNotifier {
   );
 
   CountryModel get selectedCountry => _selectedCountry;
+  bool get isDropDownOpen => _isDropDownOpen;
+
+  void updateDropDown(bool status) {
+    _isDropDownOpen = status;
+  }
+
   void filteredCountry(String keyword) {
     if (keyword.isEmpty) {
       result = allCountry;

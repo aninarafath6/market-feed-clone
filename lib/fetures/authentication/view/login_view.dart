@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketfeed_clone/common/constants/app_colors.dart';
 import 'package:marketfeed_clone/common/constants/app_images.dart';
+import 'package:marketfeed_clone/fetures/authentication/view_model/country_code_view_model.dart';
 import 'package:marketfeed_clone/fetures/authentication/widgets/bottom_section.dart';
 import 'package:marketfeed_clone/utils/dimensions.dart';
+import 'package:provider/src/provider.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -69,6 +71,8 @@ class LoginView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.darkGrey,
+      resizeToAvoidBottomInset:
+          !context.watch<CountryCodeViewModel>().isDropDownOpen,
       body: WillPopScope(
         onWillPop: onWillPop,
         child: Column(

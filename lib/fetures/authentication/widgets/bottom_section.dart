@@ -5,6 +5,7 @@ import 'package:marketfeed_clone/common/widgets/button.dart';
 import 'package:marketfeed_clone/common/widgets/inputbox.dart';
 import 'package:marketfeed_clone/fetures/authentication/view_model/country_code_view_model.dart';
 import 'package:marketfeed_clone/fetures/authentication/widgets/country_code.dart';
+import 'package:marketfeed_clone/fetures/onboarding/view_models/onboarding_view_model.dart';
 import 'package:marketfeed_clone/utils/dimensions.dart';
 import 'package:provider/src/provider.dart';
 
@@ -59,11 +60,16 @@ class BottomSection extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {
+                  context.read<CountryCodeViewModel>().updateDropDown(true);
                   showDialog(
                     context: context,
                     builder: (context) {
                       return const CountryCodes();
                     },
+                  ).then(
+                    (_) => context
+                        .read<CountryCodeViewModel>()
+                        .updateDropDown(false),
                   );
                 },
                 child: Text(
