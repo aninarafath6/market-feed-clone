@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketfeed_clone/common/constants/app_colors.dart';
@@ -74,10 +75,12 @@ class EmailInputs extends StatelessWidget {
               ),
             ),
             const Spacer(flex: 2),
-            Button(
-              label: 'Continue',
-              onTap: context.read<LoginViewModel>().accountSetup,
-            ),
+            context.watch<LoginViewModel>().loading
+                ? CupertinoActivityIndicator()
+                : Button(
+                    label: 'Continue',
+                    onTap: context.read<LoginViewModel>().accountSetup,
+                  ),
           ],
         ),
       ),

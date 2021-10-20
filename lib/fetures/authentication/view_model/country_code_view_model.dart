@@ -40,5 +40,6 @@ class CountryCodeViewModel with ChangeNotifier {
   void updateCountryCode(CountryModel country) {
     _selectedCountry = country;
     notifyListeners();
+    result = allCountry;
   }
 }

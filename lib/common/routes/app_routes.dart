@@ -14,7 +14,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const HomeView());
 
       default:
-        return MaterialPageRoute(builder: (_) => const OnboardingView());
+        return MaterialPageRoute(builder: (_) => const Scaffold());
     }
   }
 }

@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:marketfeed_clone/fetures/authentication/repo/auth_service.dart';
+import 'package:marketfeed_clone/fetures/authentication/repo/data_base_service.dart';
 import 'package:marketfeed_clone/fetures/home/views/home_view.dart';
 import 'package:marketfeed_clone/utils/navigation.dart';
 
@@ -17,6 +18,7 @@ class LoginViewModel with ChangeNotifier {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   late BuildContext context;
+  bool _loading = false;
 
   final _formKey = GlobalKey<FormState>();
   bool isAccountSetup = false;
@@ -30,6 +32,7 @@ class LoginViewModel with ChangeNotifier {
   TextEditingController get smsController => _smsController;
   TextEditingController get emailController => _emailController;
   TextEditingController get usernameController => _usernameController;
+  bool get loading => _loading;
 
   GlobalKey get formKey => _formKey;
 
@@ -73,6 +76,7 @@ class LoginViewModel with ChangeNotifier {
     this.context = context;
     UserCredential userCredential = await AuthService()
         .signInWithPhone(verificationCode, _smsController.text);
+    DatabaseService().setUser(userCredential.user!.uid);
     var email = await users.doc(_auth.currentUser!.uid).get();
 
     if (email.data() == null) {
@@ -84,10 +88,13 @@ class LoginViewModel with ChangeNotifier {
     }
   }
 
-  void accountSetup() {
+  void accountSetup() async {
     if (_formKey.currentState!.validate()) {
-      AuthService().addUser(_emailController.text, _usernameController.text);
-      context.toPushNamedReplacement(HomeView.routeName);
+      _loading = true;
+      await AuthService()
+          .addUser(_emailController.text, _usernameController.text);
+      // context.toPushNamedReplacement(HomeView.routeName);
+      _loading = false;
     }
   }
 }
