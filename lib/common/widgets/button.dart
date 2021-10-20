@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketfeed_clone/common/constants/app_colors.dart';
+import 'package:marketfeed_clone/utils/dimensions.dart';
 
 class Button extends StatelessWidget {
   const Button({
@@ -16,7 +17,7 @@ class Button extends StatelessWidget {
       onPressed: onTap,
       child: Container(
         width: double.infinity,
-        height: 50,
+        height: context.getHeight(5),
         decoration: BoxDecoration(
           color: AppColors.yellow,
           borderRadius: BorderRadius.circular(5),
@@ -24,9 +25,10 @@ class Button extends StatelessWidget {
         child: Center(
           child: Text(
             label!,
-            style: const TextStyle(
+            style: TextStyle(
               color: AppColors.primaryColor,
               fontWeight: FontWeight.bold,
+              fontSize: context.getHeight(1.5),
             ),
           ),
         ),

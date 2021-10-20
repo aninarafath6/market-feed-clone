@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>266633885932-533pbi75ama7tpjl19qqink0s4r8s2dm.apps.googleusercontent.com</string>
+	<string>297585769106-q2pd7f37hgnfpvqdvvg5ht5n6o5ponl9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.266633885932-533pbi75ama7tpjl19qqink0s4r8s2dm</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>266633885932-eqv7v4kcluqtpeo9p82utgt536bqj8m2.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.297585769106-q2pd7f37hgnfpvqdvvg5ht5n6o5ponl9</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCvbUn-KtKDdcIRwtiCRac5u-8tXJOXUww</string>
+	<string>AIzaSyBy62rlT-reDKPkgubAt98iPmUCnPZg1Jo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>266633885932</string>
+	<string>297585769106</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.marketfeedClone</string>
 	<key>PROJECT_ID</key>
-	<string>market-feed-cl</string>
+	<string>market-feed-efce4</string>
 	<key>STORAGE_BUCKET</key>
-	<string>market-feed-cl.appspot.com</string>
+	<string>market-feed-efce4.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:266633885932:ios:342c1050a6802f2ec54dc9</string>
+	<string>1:297585769106:ios:a53e50ef3fca59a067844b</string>
 </dict>
 </plist>

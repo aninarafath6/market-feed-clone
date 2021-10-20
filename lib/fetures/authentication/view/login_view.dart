@@ -87,7 +87,7 @@ class LoginView extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const BottomSection(),
+            BottomSection(),
           ],
         ),
       ),

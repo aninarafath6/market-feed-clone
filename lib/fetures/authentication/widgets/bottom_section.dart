@@ -1,16 +1,22 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketfeed_clone/common/constants/app_colors.dart';
 import 'package:marketfeed_clone/common/widgets/button.dart';
 import 'package:marketfeed_clone/common/widgets/inputbox.dart';
 import 'package:marketfeed_clone/fetures/authentication/view_model/country_code_view_model.dart';
+import 'package:marketfeed_clone/fetures/authentication/view_model/login_view_model.dart';
 import 'package:marketfeed_clone/fetures/authentication/widgets/country_code.dart';
-import 'package:marketfeed_clone/fetures/onboarding/view_models/onboarding_view_model.dart';
+import 'package:marketfeed_clone/fetures/authentication/widgets/otp_auth.dart';
 import 'package:marketfeed_clone/utils/dimensions.dart';
+// ignore: implementation_imports
 import 'package:provider/src/provider.dart';
 
 class BottomSection extends StatelessWidget {
-  const BottomSection({
+  BottomSection({
     Key? key,
   }) : super(key: key);
 
@@ -18,7 +24,8 @@ class BottomSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
-      height: context.getHeight(32),
+      height: context
+          .getHeight(context.watch<LoginViewModel>().isOtpSent ? 45 : 33),
       width: context.getWidth(100),
       decoration: const BoxDecoration(
         color: AppColors.primaryColor,
@@ -28,15 +35,15 @@ class BottomSection extends StatelessWidget {
         ),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children: [
+          OtpAuth(),
           Text(
-            "Login with Mobile Number",
+            "Setup your account",
             style: GoogleFonts.roboto(
               color: Colors.white,
               fontWeight: FontWeight.w500,
-              fontSize: 20,
+              fontSize: context.getWidth(5),
             ),
           ),
           const SizedBox(
@@ -46,53 +53,26 @@ class BottomSection extends StatelessWidget {
             'All your stock market needs in one place',
             style: GoogleFonts.roboto(
               color: AppColors.textGrey,
+              fontSize: context.getWidth(3),
             ),
-          ),
-          const SizedBox(height: 25),
-          Text(
-            'Mobile Number',
-            style: GoogleFonts.roboto(
-              color: AppColors.textGrey,
-            ),
-          ),
-          const SizedBox(height: 18),
-          Row(
-            children: [
-              TextButton(
-                onPressed: () {
-                  context.read<CountryCodeViewModel>().updateDropDown(true);
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const CountryCodes();
-                    },
-                  ).then(
-                    (_) => context
-                        .read<CountryCodeViewModel>()
-                        .updateDropDown(false),
-                  );
-                },
-                child: Text(
-                  context
-                      .watch<CountryCodeViewModel>()
-                      .selectedCountry
-                      .dialCode
-                      .toString(),
-                  style: GoogleFonts.roboto(color: Colors.white, fontSize: 18),
-                ),
-              ),
-              const SizedBox(width: 50),
-              const Expanded(
-                child: InputBox(
-                  inputLabel: 'enter your mobile number',
-                ),
-              ),
-            ],
           ),
           const Spacer(),
-          Button(
-            label: 'Get OTP',
-            onTap: () {},
+          InputBox(
+            inputLabel: 'Username',
+            controller: context.read<LoginViewModel>().smsController,
+
+            // controller: context.read<LoginViewModel>().controller,
+          ),
+          const Spacer(),
+          InputBox(
+            inputLabel: 'Email',
+            controller: context.read<LoginViewModel>().smsController,
+
+            // controller: context.read<LoginViewModel>().controller,
+          ),
+          const Spacer(),
+          const Button(
+            label: 'Continue',
           ),
         ],
       ),

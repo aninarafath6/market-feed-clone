@@ -6,9 +6,9 @@ class CountryCodeViewModel with ChangeNotifier {
   Future<List<CountryModel>> result = countryModelFromJson(getJson());
   bool _isDropDownOpen = false;
   CountryModel _selectedCountry = CountryModel(
-    name: "British Indian Ocean Territory",
-    dialCode: "+246",
-    code: "IO",
+    name: "India",
+    dialCode: "+91",
+    code: "IN",
   );
 
   CountryModel get selectedCountry => _selectedCountry;

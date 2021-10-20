@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "297585769106",
+    "project_id": "market-feed-efce4",
+    "storage_bucket": "market-feed-efce4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297585769106:android:73547cb3cc1d3e8e67844b",
+        "android_client_info": {
+          "package_name": "com.example.marketfeed_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297585769106-4f6t8ke1q6olld0l08hvo33fql4tk4kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH5oTR1euSubIbopjHEKcdEGomW5CiTxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297585769106-4f6t8ke1q6olld0l08hvo33fql4tk4kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "297585769106-q2pd7f37hgnfpvqdvvg5ht5n6o5ponl9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.marketfeedClone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297585769106:android:0d0c7c4a5aac217867844b",
+        "android_client_info": {
+          "package_name": "com.example.marketfeed_cloneq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297585769106-1gdp00kph5tkovfnrokupg6u8gigg17n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.marketfeed_cloneq",
+            "certificate_hash": "1ef839f1b17271947f5762ecc9bdf2d898e8bee3"
+          }
+        },
+        {
+          "client_id": "297585769106-4f6t8ke1q6olld0l08hvo33fql4tk4kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH5oTR1euSubIbopjHEKcdEGomW5CiTxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297585769106-4f6t8ke1q6olld0l08hvo33fql4tk4kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "297585769106-q2pd7f37hgnfpvqdvvg5ht5n6o5ponl9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.marketfeedClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
