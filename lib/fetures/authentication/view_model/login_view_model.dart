@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:marketfeed_clone/fetures/authentication/repo/auth_service.dart';
@@ -7,16 +8,30 @@ import 'package:marketfeed_clone/fetures/home/views/home_view.dart';
 import 'package:marketfeed_clone/utils/navigation.dart';
 
 class LoginViewModel with ChangeNotifier {
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
   late String verificationCode;
   bool _isOtpSent = false;
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _smsController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  late BuildContext context;
+
+  final _formKey = GlobalKey<FormState>();
+  bool isAccountSetup = false;
 
   FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   int start = 60;
 
   TextEditingController get controller => _controller;
   TextEditingController get smsController => _smsController;
+  TextEditingController get emailController => _emailController;
+  TextEditingController get usernameController => _usernameController;
+
+  GlobalKey get formKey => _formKey;
 
   bool get isOtpSent => _isOtpSent;
   // int get time => _start;
@@ -32,11 +47,7 @@ class LoginViewModel with ChangeNotifier {
         updateIsOtpSent(true);
         verificationCode = vi;
       },
-      codeAutoRetrievalTimeout: (vi) {
-        // start = 60;
-        // startTimer();
-        // verificationCode = vi;
-      },
+      codeAutoRetrievalTimeout: (vi) {},
     );
   }
 
@@ -46,7 +57,7 @@ class LoginViewModel with ChangeNotifier {
   }
 
   void startTimer() {
-    Timer _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if (start == 0) {
         timer.cancel();
       } else {
@@ -59,13 +70,24 @@ class LoginViewModel with ChangeNotifier {
   }
 
   Future<void> submitOtp(BuildContext context) async {
+    this.context = context;
     UserCredential userCredential = await AuthService()
         .signInWithPhone(verificationCode, _smsController.text);
+    var email = await users.doc(_auth.currentUser!.uid).get();
 
-    if (userCredential.user!.email == null) {
-      
+    if (email.data() == null) {
+      isAccountSetup = true;
+      _isOtpSent = false;
+      notifyListeners();
     } else {
-      context.toNamed(HomeView.routeName);
+      context.toPushNamedReplacement(HomeView.routeName);
+    }
+  }
+
+  void accountSetup() {
+    if (_formKey.currentState!.validate()) {
+      AuthService().addUser(_emailController.text, _usernameController.text);
+      context.toPushNamedReplacement(HomeView.routeName);
     }
   }
 }

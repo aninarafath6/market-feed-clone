@@ -17,7 +17,7 @@ class OtpAuth extends StatelessWidget {
     var time = context.watch<LoginViewModel>().start;
 
     return Visibility(
-      visible: false,
+      visible: !context.watch<LoginViewModel>().isAccountSetup,
       child: Expanded(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

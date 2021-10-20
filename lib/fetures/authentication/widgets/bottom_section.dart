@@ -10,6 +10,7 @@ import 'package:marketfeed_clone/common/widgets/inputbox.dart';
 import 'package:marketfeed_clone/fetures/authentication/view_model/country_code_view_model.dart';
 import 'package:marketfeed_clone/fetures/authentication/view_model/login_view_model.dart';
 import 'package:marketfeed_clone/fetures/authentication/widgets/country_code.dart';
+import 'package:marketfeed_clone/fetures/authentication/widgets/email_inputs.dart';
 import 'package:marketfeed_clone/fetures/authentication/widgets/otp_auth.dart';
 import 'package:marketfeed_clone/utils/dimensions.dart';
 // ignore: implementation_imports
@@ -25,7 +26,7 @@ class BottomSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
       height: context
-          .getHeight(context.watch<LoginViewModel>().isOtpSent ? 45 : 33),
+          .getHeight(context.watch<LoginViewModel>().isOtpSent ? 45 : 33 ),
       width: context.getWidth(100),
       decoration: const BoxDecoration(
         color: AppColors.primaryColor,
@@ -36,44 +37,9 @@ class BottomSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: const [
           OtpAuth(),
-          Text(
-            "Setup your account",
-            style: GoogleFonts.roboto(
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-              fontSize: context.getWidth(5),
-            ),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            'All your stock market needs in one place',
-            style: GoogleFonts.roboto(
-              color: AppColors.textGrey,
-              fontSize: context.getWidth(3),
-            ),
-          ),
-          const Spacer(),
-          InputBox(
-            inputLabel: 'Username',
-            controller: context.read<LoginViewModel>().smsController,
-
-            // controller: context.read<LoginViewModel>().controller,
-          ),
-          const Spacer(),
-          InputBox(
-            inputLabel: 'Email',
-            controller: context.read<LoginViewModel>().smsController,
-
-            // controller: context.read<LoginViewModel>().controller,
-          ),
-          const Spacer(),
-          const Button(
-            label: 'Continue',
-          ),
+          EmailInputs(),
         ],
       ),
     );
