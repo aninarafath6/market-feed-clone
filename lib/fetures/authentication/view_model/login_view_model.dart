@@ -38,12 +38,12 @@ class LoginViewModel with ChangeNotifier {
 
   void verifyPhone(String dailcode) async {
     int start = 60;
+    startTimer();
 
     String phone = dailcode + _controller.text;
     AuthService().verifyWithPhone(
       phone,
       codeSent: (vi, token) async {
-        startTimer();
         updateIsOtpSent(true);
         verificationCode = vi;
       },

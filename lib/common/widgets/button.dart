@@ -17,7 +17,7 @@ class Button extends StatelessWidget {
       onPressed: onTap,
       child: Container(
         width: double.infinity,
-        height: context.getHeight(5),
+        height: context.getHeight(6),
         decoration: BoxDecoration(
           color: AppColors.yellow,
           borderRadius: BorderRadius.circular(5),
@@ -28,7 +28,7 @@ class Button extends StatelessWidget {
             style: TextStyle(
               color: AppColors.primaryColor,
               fontWeight: FontWeight.bold,
-              fontSize: context.getHeight(1.5),
+              fontSize: context.getHeight(2),
             ),
           ),
         ),

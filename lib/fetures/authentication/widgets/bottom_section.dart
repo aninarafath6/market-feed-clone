@@ -26,7 +26,7 @@ class BottomSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
       height: context
-          .getHeight(context.watch<LoginViewModel>().isOtpSent ? 45 : 33 ),
+          .getHeight(context.watch<LoginViewModel>().isOtpSent ? 46 : 34),
       width: context.getWidth(100),
       decoration: const BoxDecoration(
         color: AppColors.primaryColor,
