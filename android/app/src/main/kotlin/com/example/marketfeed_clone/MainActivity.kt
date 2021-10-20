@@ -1,4 +1,4 @@
-package com.example.marketfeed_clone
+package com.example.marketfeed_clonek2
 
 import io.flutter.embedding.android.FlutterActivity
 

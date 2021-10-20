@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.marketfeed_clone">
+    package="com.example.marketfeed_clonek2">
    <application
         android:label="marketfeed_clone"
         android:icon="@mipmap/ic_launcher">

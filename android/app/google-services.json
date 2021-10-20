@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:297585769106:android:73547cb3cc1d3e8e67844b",
+        "mobilesdk_app_id": "1:297585769106:android:60888072a0d375d967844b",
         "android_client_info": {
           "package_name": "com.example.marketfeed_clone"
         }
@@ -43,17 +43,17 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:297585769106:android:0d0c7c4a5aac217867844b",
+        "mobilesdk_app_id": "1:297585769106:android:41b456aa76cad03967844b",
         "android_client_info": {
-          "package_name": "com.example.marketfeed_cloneq"
+          "package_name": "com.example.marketfeed_clonek2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "297585769106-1gdp00kph5tkovfnrokupg6u8gigg17n.apps.googleusercontent.com",
+          "client_id": "297585769106-n1rimg7ps2hn9m4h80nupbcombm9o6uf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.marketfeed_cloneq",
+            "package_name": "com.example.marketfeed_clonek2",
             "certificate_hash": "1ef839f1b17271947f5762ecc9bdf2d898e8bee3"
           }
         },
